@@ -1,0 +1,2 @@
+set runtimepath+=/Users/eunsong/Projects/dotfiles/vim
+source /Users/eunsong/Projects/dotfiles/vim/vimrc.vim
