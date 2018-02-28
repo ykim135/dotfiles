@@ -45,6 +45,9 @@ Plugin 'jez/vim-ispc'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'w0rp/ale'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'vim-scripts/Align'
+Plugin 'elmcast/elm-vim'
 
 " ---- Extras/Advanced plugins ----------------------------------------
 " Highlight and strip trailing whitespace
@@ -70,6 +73,14 @@ filetype plugin indent on
 autocmd FileType java setlocal smartindent expandtab shiftwidth=4 softtabstop=4
 autocmd FileType javascript setlocal smartindent expandtab shiftwidth=4 softtabstop=4
 autocmd FileType typescript setlocal smartindent expandtab shiftwidth=2 softtabstop=2
+autocmd FileType xml setlocal smartindent expandtab shiftwidth=4 softtabstop=4
+autocmd FileType sbt setlocal smartindent expandtab shiftwidth=2 softtabstop=2
+
+set tags=./tags;/
+
+let g:ale_pattern_options = {
+			\   '.*\.java$': {'ale_enabled': 0}
+			\}
 
 " --- General settings ---
 set backspace=indent,eol,start
@@ -117,8 +128,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='molokai'
 
 " ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs with \t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 " To have NERDTree always open on startup
 let g:nerdtree_tabs_open_on_console_startup = 0
 
@@ -131,6 +141,7 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
@@ -151,3 +162,5 @@ augroup END
 " ----- jez/vim-superman settings -----
 " better man page support
 noremap K :SuperMan <cword><CR>
+
+set shortmess+=A
